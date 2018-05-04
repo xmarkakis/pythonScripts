@@ -13,19 +13,19 @@ def checkLen(x):
 #The first if statement handles 4 integer length number inserts. 
     if len(x)==4:
         m = list(x)
-        #print(m)
+        print(m)
         return romanIV(m[0]) + romanIII(m[1]) + romanII(m[2]) + romanI(m[3])
 
 #The second if statement handles 3 integer length number inserts.    
     elif len(x)==3:
         m = list(x)
-        #print(m)
+        print(m)
         return romanIII(m[0]) + romanII(m[1]) + romanI(m[2])
 
 #The third if statement handles 2 integer length number inserts.    
     elif len(x)==2:
         m = list(x)
-        #print(m)
+        print(m)
         return romanII(m[0]) + romanI(m[1])
 
 #The last if statement handles 1 integer length number inserts.         
@@ -176,4 +176,13 @@ def romanIV(x):
 numX = input("Enter a number to turn into a number: ")
 print(checkLen(numX))
 
+"""
+test={"a1":"20"}
 
+def rom(x):
+    y= "a"+ str(x)
+    print(y)
+    return test[y]
+
+print(rom(1))
+"""
