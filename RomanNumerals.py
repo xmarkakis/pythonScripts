@@ -12,29 +12,25 @@ def checkLen(x):
 
 #The first if statement handles 4 integer length number inserts. 
     if len(x)==4:
-        print("length is 4")
         m = list(x)
-        print(m)
+        #print(m)
         return romanIV(m[0]) + romanIII(m[1]) + romanII(m[2]) + romanI(m[3])
 
 #The second if statement handles 3 integer length number inserts.    
     elif len(x)==3:
-        print("length is 3")
         m = list(x)
-        print(m)
+        #print(m)
         return romanIII(m[0]) + romanII(m[1]) + romanI(m[2])
 
 #The third if statement handles 2 integer length number inserts.    
     elif len(x)==2:
-        print("length is 2")
         m = list(x)
-        print(m)
+        #print(m)
         return romanII(m[0]) + romanI(m[1])
 
 #The last if statement handles 1 integer length number inserts.         
     elif len(x)==1:
-        print("length is 1")
-        m = list(x)
+        #m = list(x)
         if m == 0: 
             return ""
         else:
@@ -49,12 +45,14 @@ def checkLen(x):
 
 def romanI(x):
     a=int(x)
+#evaluates when the number is 5 or 0 and then returns the appropriate character. Same rule in all the other roman functions.
     if a==0 or a==5:
         if a==5:
             p = romanNum["b"]
             return p
         else:
             return ""
+#evaluates when the number is 4 or 9 and then returns the appropriate character. 
     elif a==4 or a==9:
         if a==4:
             x=romanNum["a"]
@@ -66,6 +64,7 @@ def romanI(x):
             y=romanNum["c"]
             p=x+y
             return p
+#evaluates when the number is between 1-3 or 6-8 and then returns the appropriate character. 
     elif a>0 and a<9:
         if a<4:
             p=a*romanNum["a"]
@@ -75,6 +74,7 @@ def romanI(x):
             y=romanNum["b"]
             p=y+x
             return p
+#General error handling code
     else:
         return "z1"
         
@@ -108,7 +108,7 @@ def romanII(x):
             return p
     else:
         return "z1"
-        
+
 def romanIII(x):
     a=int(x)
     if a==0 or a==5:
