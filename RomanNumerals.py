@@ -8,11 +8,14 @@ I just added the lower case values of those characters in the mean time.
 romanNum = {"a":"I","b":"V","c":"X","d":"L","e":"C","f":"D","g":"M","h":"v","i":"x"}
             
 def checkLen(x):
-    #keep in mind that negative values will fall into the wrong length category!!
-
+#keep in mind that negative values will fall into the wrong length category!!
 #The first if statement handles 4 integer length number inserts. 
     if len(x)==4:
         m = list(x)
+        if m.pop(m(0)) == "-":
+            return m(1:)
+        else:
+            return x
         print(m)
         return romanIV(m[0]) + romanIII(m[1]) + romanII(m[2]) + romanI(m[3])
 
