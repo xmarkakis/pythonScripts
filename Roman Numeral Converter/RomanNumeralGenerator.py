@@ -6,14 +6,23 @@ Reason being, roman numerals have weird characters for 5,000 and above. Since I 
 I just added the lower case values of those characters in the mean time.
 """
 romanNum = {"a":"I","b":"V","c":"X","d":"L","e":"C","f":"D","g":"M","h":"v","i":"x"}
-            
+"""
+This is a temp version of the final script. I've overhauling all the code from the original. 
+I'm determined to get this script down to a simple few lines. Here are the steps I think the script needs to do:
+1. Check if the length of the user input is less than 5 (anything greater than 4 should generate an error)
+2. Check if the first character in the string is a negative sign. 
+3. Check if the value can be converted into a string. (Look into how this can be done. I'm thinkng a simple if statement that returns true.)
+4. Create a function that grans the values and it's index position to evaluate the number independent of the other numbers. 
+5. Add the outputs together to generate an accurate roman numeral (need to make sure the "for" loop here evaluates the numbers and adds them in order.)   
+"""
+
 def checkLen(x):
 #keep in mind that negative values will fall into the wrong length category!!
 #The first if statement handles 4 integer length number inserts. 
     if len(x)==4:
         m = list(x)
         if m.pop(m(0)) == "-":
-            return m(1)
+            return m[1::]
         else:
             return x
         print(m)
@@ -179,13 +188,3 @@ def romanIV(x):
 numX = input("Enter a number to turn into a number: ")
 print(checkLen(numX))
 
-"""
-test={"a1":"20"}
-
-def rom(x):
-    y= "a"+ str(x)
-    print(y)
-    return test[y]
-
-print(rom(1))
-"""
