@@ -15,36 +15,48 @@ I'm determined to get this script down to a simple few lines. Here are the steps
 4. Create a function that grans the values and it's index position to evaluate the number independent of the other numbers. 
 5. Add the outputs together to generate an accurate roman numeral (need to make sure the "for" loop here evaluates the numbers and adds them in order.)   
 """
+numX = input("Enter a number to turn into a numeral: ")
+#def checkLen2(x):
+    #m = list(x)
+    #print(m)
+    #print(m[:1])
+    #if x[0:1]=='-':
+      #  m=list(x)
+     #    print(m)
+   #     print("Yes")
+  #  else:
+ #       print("No")
+#print(checkLen2("-150"))
+
+def negCheck(x):
+    if x[:1]=='-':
+        m=list(x)
+        return checkLen(m[1:])
+    else:
+        m=list(x)
+        return checkLen(m)
 
 def checkLen(x):
 #keep in mind that negative values will fall into the wrong length category!!
-#The first if statement handles 4 integer length number inserts. 
+#4 integer length check. 
     if len(x)==4:
-        m = list(x)
-        if m.pop(m(0)) == "-":
-            return m[1::]
-        else:
-            return x
-        print(m)
-        return romanIV(m[0]) + romanIII(m[1]) + romanII(m[2]) + romanI(m[3])
+        return romanIV(x[0]) + romanIII(x[1]) + romanII(x[2]) + romanI(x[3])
+        print(x)
 
-#The second if statement handles 3 integer length number inserts.    
+#3 integer length check.    
     elif len(x)==3:
-        m = list(x)
-        print(m)
-        return romanIII(m[0]) + romanII(m[1]) + romanI(m[2])
+        print(x)
+        return romanIII(x[0]) + romanII(x[1]) + romanI(x[2])
 
-#The third if statement handles 2 integer length number inserts.    
+#2 integer length check.   
     elif len(x)==2:
-        m = list(x)
-        print(m)
-        return romanII(m[0]) + romanI(m[1])
+        print(x)
+        return romanII(x[0]) + romanI(x[1])
 
-#The last if statement handles 1 integer length number inserts.         
+#Single integer length check.         
     elif len(x)==1:
-        #m = list(x)
-        if m == 0: 
-            return ""
+        if x == 0: 
+            print("You entered 0 .... 0 is 0 in roman numerals .... come on!!")
         else:
             return romanI(x)
 
@@ -56,15 +68,15 @@ def checkLen(x):
         print("Please print a value in range")
 
 def romanI(x):
-    a=int(x)
-#evaluates when the number is 5 or 0 and then returns the appropriate character. Same rule in all the other roman functions.
+    a=abs(int(x))
+    #evaluates when the number is 5 or 0 and then returns the appropriate character. Same rule in all the other roman functions.
     if a==0 or a==5:
         if a==5:
             p = romanNum["b"]
             return p
         else:
             return ""
-#evaluates when the number is 4 or 9 and then returns the appropriate character. 
+    #evaluates when the number is 4 or 9 and then returns the appropriate character. 
     elif a==4 or a==9:
         if a==4:
             x=romanNum["a"]
@@ -76,7 +88,7 @@ def romanI(x):
             y=romanNum["c"]
             p=x+y
             return p
-#evaluates when the number is between 1-3 or 6-8 and then returns the appropriate character. 
+    #evaluates when the number is between 1-3 or 6-8 and then returns the appropriate character. 
     elif a>0 and a<9:
         if a<4:
             p=a*romanNum["a"]
@@ -86,12 +98,12 @@ def romanI(x):
             y=romanNum["b"]
             p=y+x
             return p
-#General error handling code
+    #General error handling code
     else:
         return "z1"
         
 def romanII(x):
-    a=int(x)
+    a=abs(int(x))
     if a==0 or a==5:
         if a==5:
             p = romanNum["d"]
@@ -122,7 +134,7 @@ def romanII(x):
         return "z1"
 
 def romanIII(x):
-    a=int(x)
+    a=abs(int(x))
     if a==0 or a==5:
         if a==5:
             p = romanNum["f"]
@@ -153,7 +165,7 @@ def romanIII(x):
         return "z1"
 
 def romanIV(x):
-    a=int(x)
+    a=abs(int(x))
     if a==0 or a==5:
         if a==5:
             p = romanNum["h"]
@@ -185,6 +197,5 @@ def romanIV(x):
 
         #case 2 - When the value is zero, need to return the function somehow to the next function
 #remember to convert values to int and abs so that you change the string into a value and also get the absolute value as well
-numX = input("Enter a number to turn into a number: ")
-print(checkLen(numX))
+print(negCheck(numX))
 
